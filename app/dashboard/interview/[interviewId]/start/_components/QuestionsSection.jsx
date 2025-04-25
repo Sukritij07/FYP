@@ -23,7 +23,9 @@ const QuestionsSection = ({ mockInterviewQuestions, activeQuestionIndex }) => {
             <div
               key={index}
               className={`p-2 rounded-full text-xs md:text-sm text-center cursor-pointer ${
-                activeQuestionIndex === index ? "bg-primary text-white" : "bg-secondary"
+                activeQuestionIndex === index
+                  ? "bg-primary text-white"
+                  : "bg-secondary"
               }`}
               onClick={() => console.log(`Question ${index + 1} clicked`)}
             >
@@ -37,7 +39,11 @@ const QuestionsSection = ({ mockInterviewQuestions, activeQuestionIndex }) => {
           </h2>
           <Volume2
             className="cursor-pointer"
-            onClick={() => textToSpeech(mockInterviewQuestions[activeQuestionIndex]?.question)}
+            onClick={() =>
+              textToSpeech(
+                mockInterviewQuestions[activeQuestionIndex]?.question
+              )
+            }
           />
           <div className="border rounded-lg p-5 bg-blue-100 mt-5 flex flex-col items-start">
             <h2 className="flex gap-2 items-center text-primary font-semibold">
@@ -45,7 +51,8 @@ const QuestionsSection = ({ mockInterviewQuestions, activeQuestionIndex }) => {
               <strong>Note:</strong>
             </h2>
             <h2 className="text-sm text-primary my-2">
-              {process.env.NEXT_PUBLIC_QUESTION_NOTE || "No additional notes available."}
+              {process.env.NEXT_PUBLIC_QUESTION_NOTE ||
+                "No additional notes available."}
             </h2>
           </div>
         </div>
