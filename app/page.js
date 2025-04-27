@@ -16,16 +16,15 @@ const page = () => {
           name="description"
           content="Ace your next interview with AI-powered mock interviews"
         />
-        <link rel="icon" href="/ilablogo.jpg" />
+        <link rel="icon" href="/favicon.png" type="image/png" />
         <link
           href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap"
           rel="stylesheet"
         />
       </Head>
 
-     
-        {/* Header Section */}
-        <header className="w-full py-2 bg-[#20503B] shadow-md">
+      {/* Header Section */}
+      <header className="w-full py-2 bg-[#20503B] shadow-md">
         <div className="container mx-auto flex justify-between items-center px-6">
           <img
             src="/ilab2.jpg"
@@ -51,8 +50,8 @@ const page = () => {
         </div>
       </header>
 
-        {/* Hero Section */}
-        <section className="flex flex-col items-center justify-center text-center py-20 bg-[#E8F1EB] px-6">
+      {/* Hero Section */}
+      <section className="flex flex-col items-center justify-center text-center py-20 bg-[#E8F1EB] px-6">
         <h2 className="text-6xl font-semibold text-[#20503B] tracking-tight">
           Ace Your Interview
         </h2>
