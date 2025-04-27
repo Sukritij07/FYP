@@ -1,8 +1,14 @@
-'use client';
+"use client";
 
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import React, { useContext, useEffect, useState, useRef, createContext } from "react";
+import React, {
+  useContext,
+  useEffect,
+  useState,
+  useRef,
+  createContext,
+} from "react";
 import Webcam from "react-webcam";
 import { Mic } from "lucide-react";
 import { toast } from "sonner";
@@ -50,14 +56,16 @@ const RecordAnswerSection = ({
       };
 
       mediaRecorderRef.current.onstop = async () => {
-        const audioBlob = new Blob(chunksRef.current, { type: 'audio/webm' });
+        const audioBlob = new Blob(chunksRef.current, { type: "audio/webm" });
         await transcribeAudio(audioBlob);
       };
 
       mediaRecorderRef.current.start();
       setIsRecording(true);
     } catch (error) {
-      toast("Error starting recording. Please check your microphone permissions.");
+      toast(
+        "Error starting recording. Please check your microphone permissions."
+      );
     }
   };
 
@@ -72,12 +80,12 @@ const RecordAnswerSection = ({
     try {
       setLoading(true);
       const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-      
+
       const reader = new FileReader();
       reader.readAsDataURL(audioBlob);
       reader.onloadend = async () => {
-        const base64Audio = reader.result.split(',')[1];
-        
+        const base64Audio = reader.result.split(",")[1];
+
         const result = await model.generateContent([
           "Transcribe the following audio:",
           { inlineData: { data: base64Audio, mimeType: "audio/webm" } },
@@ -107,7 +115,7 @@ const RecordAnswerSection = ({
         userAnswer +
         " , Depends on question and user answer for given interview question" +
         " please give us rating for answer and feedback as area of improvement if any " +
-        "in just 3 to 5 lines to improve it in JSON format with rating field and feedback field";
+        "in just 3 to 5 lines to improve it in JSON format with rating field and feedback field" + "keep the rating a bit lenient and on scale of 1 to 10";
 
       console.log("Sending feedback prompt to AI model...");
       const result = await sendMessage(feedbackPrompt); // Use the imported sendMessage function
@@ -142,7 +150,9 @@ const RecordAnswerSection = ({
       setLoading(false);
     } catch (error) {
       console.error("Error recording user answer:", error);
-      toast(`An error occurred while recording the user answer: ${error.message}`);
+      toast(
+        `An error occurred while recording the user answer: ${error.message}`
+      );
       setLoading(false);
     }
   };
@@ -157,7 +167,12 @@ const RecordAnswerSection = ({
               style={{ height: 250, width: "100%", zIndex: 10 }}
             />
           ) : (
-            <Image src={"/webcam.png"} width={200} height={200} alt="Camera placeholder" />
+            <Image
+              src={"/webcam.png"}
+              width={200}
+              height={200}
+              alt="Camera placeholder"
+            />
           )}
         </div>
         <div className="md:flex mt-4 md:mt-8 md:gap-5">

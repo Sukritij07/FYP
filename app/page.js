@@ -66,17 +66,17 @@ const page = () => {
         <div className="grid grid-cols-2 gap-6">
           <a href="/dashboard">
             <div className="w-80 h-40 bg-[#D9EAD3] flex items-center justify-center rounded-lg shadow-md cursor-pointer hover:bg-[#C4D9C1] transition-colors">
+              <p className="text-2xl font-medium">Dashboard</p>
+            </div>
+          </a>
+          <a href="/dashboard/howit">
+            <div className="w-80 h-40 bg-[#D9EAD3] flex items-center justify-center rounded-lg shadow-md cursor-pointer hover:bg-[#C4D9C1] transition-colors">
               <p className="text-2xl font-medium">Get Started</p>
             </div>
           </a>
           <a href="#features">
             <div className="w-80 h-40 bg-[#D9EAD3] flex items-center justify-center rounded-lg shadow-md cursor-pointer hover:bg-[#C4D9C1] transition-colors">
               <p className="text-2xl font-medium">Features</p>
-            </div>
-          </a>
-          <a href="/dashboard/howit">
-            <div className="w-80 h-40 bg-[#D9EAD3] flex items-center justify-center rounded-lg shadow-md cursor-pointer hover:bg-[#C4D9C1] transition-colors">
-              <p className="text-2xl font-medium">How it Works</p>
             </div>
           </a>
           <a href="/dashboard/question">

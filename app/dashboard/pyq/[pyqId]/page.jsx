@@ -10,41 +10,53 @@ import { db } from "@/utils/db";
 import { Question } from "@/utils/schema";
 import { eq } from "drizzle-orm";
 
-const page = ({ params }) => {
-  const [questionData, setQuestionData] = useState();
+const Page = ({ params }) => {
+  const [questionData, setQuestionData] = useState([]);
+  const pyqId = React.use(params); // Use `React.use` to unwrap `params`
 
   useEffect(() => {
-    console.log(params.pyqId);
-    getQuestionDetails();
-  }, []);
+    if (pyqId) {
+      console.log("Fetching question data for:", pyqId);
+      getQuestionDetails(pyqId);  // Pass `pyqId` to the async function
+    }
+  }, [pyqId]);  // Run the effect when `pyqId` changes
 
-  const getQuestionDetails = async () => {
-    const result = await db
-      .select()
-      .from(Question)
-      .where(eq(Question.mockId, params.pyqId));
-      const questionData = JSON.parse(result[0].MockQuestionJsonResp);
-    setQuestionData(questionData);
-    // console.log("data", questionData);
+  const getQuestionDetails = async (pyqId) => {
+    try {
+      const result = await db
+        .select()
+        .from(Question)
+        .where(eq(Question.mockId, pyqId));
+
+      if (result.length > 0) {
+        const questionData = JSON.parse(result[0].MockQuestionJsonResp);
+        setQuestionData(questionData);
+      }
+    } catch (error) {
+      console.error("Failed to fetch question data:", error);
+    }
   };
 
-
-
   return (
-    questionData && (
     <div className="p-10 my-5">
-      <Accordion type="single" collapsible>
-        {questionData &&
-          questionData.map((item, index) => (
-            <AccordionItem value={`item-${index + 1}`} key={index} className="mb-5"  >
+      {questionData.length > 0 ? (
+        <Accordion type="single" collapsible>
+          {questionData.map((item, index) => (
+            <AccordionItem
+              value={`item-${index + 1}`}
+              key={index}
+              className="mb-5"
+            >
               <AccordionTrigger>{item?.Question}?</AccordionTrigger>
               <AccordionContent>{item?.Answer}</AccordionContent>
             </AccordionItem>
           ))}
-      </Accordion>
+        </Accordion>
+      ) : (
+        <div>Loading...</div>
+      )}
     </div>
-    )
   );
 };
 
-export default page;
+export default Page;

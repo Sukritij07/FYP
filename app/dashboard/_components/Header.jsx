@@ -31,7 +31,7 @@ const Header = ({ logo }) => {
   return (
     <div className="bg-gradient-to-r from-[#102820] via-[#24513A] to-[#3C6E51] shadow-md font-['Playfair_Display'] text-[#FDFCF9]">
       <div className="w-[90%] m-auto flex gap-4 items-center justify-between py-2">
-        <Link className="hidden md:block" href="/dashboard">
+        <Link className="hidden md:block" href="/">
           <Image
             src="/ilablogo.jpg"
             width={80}
@@ -77,7 +77,7 @@ const Header = ({ logo }) => {
                 "text-[#D1FAE5] underline decoration-2"
               }`}
             >
-              How it works?
+              Get Started
             </li>
           </Link>
         </ul>
@@ -178,6 +178,6 @@ const Header = ({ logo }) => {
       )}
     </div>
   );
-}
+};
 
 export default Header;

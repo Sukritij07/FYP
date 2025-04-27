@@ -25,9 +25,8 @@ const AddQuestions = () => {
   const [openDailog, setOpenDialog] = useState(false);
   const [jobPosition, setJobPosition] = useState("");
   const [jobDesc, setJobDesc] = useState("");
-  const [typeQuestion, setTypeQuestion] = useState("");
   const [company, setCompany] = useState("");
-  const [jobExperience, setJobExperience] = useState();
+  const [jobExperience, setJobExperience] = useState("0");
   const [loading, setLoading] = useState(false);
   const [questionJsonResponse, setQuestionJsonResponse] = useState([]);
   const { user } = useUser();
@@ -43,7 +42,6 @@ const AddQuestions = () => {
       "Data",
       jobPosition,
       jobDesc,
-      typeQuestion,
       company,
       jobExperience
     );
@@ -52,7 +50,6 @@ const AddQuestions = () => {
     Job Positions: ${jobPosition},
     Job Description: ${jobDesc},
     Years of Experience: ${jobExperience},
-    Which type of question: ${typeQuestion},
     This company previous question: ${company},
     Based on this information, please provide 5 interview questions with answers in JSON format.
     Each question and answer should be fields in the JSON. Ensure "Question" and "Answer" are fields.
@@ -81,7 +78,6 @@ const AddQuestions = () => {
             jobPosition: jobPosition,
             jobDesc: jobDesc,
             jobExperience: jobExperience,
-            typeQuestion: typeQuestion,
             company: company,
             createdBy: user?.primaryEmailAddress?.emailAddress,
             createdAt: moment().format("YYYY-MM-DD"),
@@ -118,17 +114,11 @@ const AddQuestions = () => {
         <DialogContent>
           <DialogHeader>
             <DialogTitle>What model questions are you seeking</DialogTitle>
-            <DialogDescription>Add Details about your job position, job descritpion and
-            years of experience
+            <DialogDescription>Add Details about the job you wish to take up the interview for
               
             </DialogDescription>
             <form onSubmit={onSubmit}>
                 <div className="my-3">
-                  <h2>
-                    Add Details about your job position, job descritpion and
-                    years of experience
-                  </h2>
-
                   <div className="mt-7 my-3">
                     <label className="text-black">Job Role/job Position</label>
                     <Input
@@ -151,18 +141,7 @@ const AddQuestions = () => {
                       onChange={handleInputChange(setJobDesc)}
                     />
                   </div>
-                  <div className="my-4">
-                    <label className="text-black">
-                      Type of Questions (In Short)
-                    </label>
-                    <Input
-                      className="placeholder-opacity-50"
-                      value={typeQuestion}
-                      placeholder="Ex. CPP, Leetcode, Domain based"
-                      required
-                      onChange={handleInputChange(setTypeQuestion)}
-                    />
-                  </div>
+                  
                   <div className="my-4">
                     <label className="text-black">
                       Company are you seeking

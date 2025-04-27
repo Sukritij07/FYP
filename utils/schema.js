@@ -22,4 +22,24 @@ export const UserAnswer = pgTable('userAnswer', {
   createdAt: varchar('createdAt'),
 });
 
+export const Question = pgTable("question", {
+  id: serial("id").primaryKey(),
+  MockQuestionJsonResp: text("MockQuestionJsonResp").notNull(),
+  jobPosition: varchar("jobPosition").notNull(),
+  jobDesc: varchar("jobDesc").notNull(),
+  jobExperience: varchar("jobExperience").notNull(),
+  company: varchar("company").notNull(),
+  createdBy: varchar("createdBy").notNull(),
+  createdAt: varchar("createdAt"),
+  mockId: varchar("mockId").notNull(),
+});
+
+export const Newsletter = pgTable("newsletter", {
+  id: serial("id").primaryKey(),
+  newName: varchar("newName"),
+  newEmail: varchar("newEmail"),
+  newMessage: text("newMessage"),
+  createdAt: varchar("createdAt"),
+});
+
 export const schema = { MockInterview, UserAnswer };

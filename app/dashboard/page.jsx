@@ -56,8 +56,8 @@ const Dashboard = () => {
 
       {/* Footer */}
       <footer className="bg-card border-t border-border mt-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-sm text-muted-foreground">
-          © {new Date().getFullYear()} AI Interview Platform. All rights reserved.
+        <div className="flex justify-center items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-sm text-muted-foreground">
+          © {new Date().getFullYear()} I Lab. All rights reserved.
         </div>
       </footer>
     </div>

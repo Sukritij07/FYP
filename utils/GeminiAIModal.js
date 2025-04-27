@@ -1,6 +1,7 @@
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
+
 const genAI = new GoogleGenerativeAI(apiKey);
 
 const model = genAI.getGenerativeModel({
@@ -28,4 +29,8 @@ async function sendMessage(input) {
   }
 }
 
-module.exports = { sendMessage };
+const chatSession = {
+  sendMessage,
+};
+
+module.exports = { sendMessage, chatSession };

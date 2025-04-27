@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
-import { CalendarIcon, ClockIcon } from 'lucide-react';
+import { CalendarIcon } from 'lucide-react';
 
 const InterviewItemCard = ({ interview }) => {
   const router = useRouter();
@@ -37,9 +37,9 @@ const InterviewItemCard = ({ interview }) => {
         </div>
         
         <div className="flex items-center text-gray-500 text-xs mb-4">
-          <CalendarIcon className="w-3 h-3 mr-1" />
-          <span>{formatDate(interview.createdAt)}</span>
-        </div>
+                <CalendarIcon className="w-3 h-3 mr-1" />
+                <span>{formatDate(interview.createdAt)}</span>
+              </div>
         
         <div className="flex justify-between gap-3 mt-4">
           <Button 
