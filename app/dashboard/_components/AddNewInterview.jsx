@@ -8,6 +8,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import Button from "@mui/material/Button";
+// import { Button } from "@/components/ui/button";
 import { Input, TextareaAutosize } from "@mui/material";
 import { sendMessage } from "../../../utils/GeminiAIModal";
 import { v4 as uuidv4 } from "uuid";
@@ -16,6 +17,9 @@ import db from "../../../utils/db"; // Import the database connection
 import { MockInterview } from "../../../utils/schema"; // Import your schema
 import { useRouter } from "next/navigation";
 import { useUser } from "@clerk/nextjs";
+import { Textarea } from "@/components/ui/textarea";
+import { chatSession } from "@/utils/GeminiAIModal";
+import { LoaderCircle } from "lucide-react";
 
 function AddNewInterview() {
   const [openDialog, setOpenDialog] = useState(false);
@@ -157,15 +161,15 @@ function AddNewInterview() {
 
   return (
     <form onSubmit={onSubmit} className="space-y-6">
-      <div className="space-y-4">
+      <div className="space-y-4 font-['DM_Serif_Display'] text-[#1C1C1C]">
         <div
-          className="p-4 border rounded-lg bg-blue-500 hover:bg-blue-600 cursor-pointer text-white text-center transition-all"
+          className="p-10 rounded-lg border bg-[#D9EAD3] hover:scale-105 hover:shadow-sm transition-all cursor-pointer"
           onClick={() => setOpenDialog(true)}
         >
-          <h2 className="text-lg font-semibold">+ Add New</h2>
+          <h2 className="text-xl text-center">+ Add New</h2>
         </div>
         <Dialog open={openDialog} onOpenChange={setOpenDialog}>
-          <DialogContent className="max-w-2xl bg-gray-100 p-6 rounded-lg shadow-lg">
+          <DialogContent className="max-w-2xl bg-[#F7F7F1]">
             <DialogHeader>
               <DialogTitle className="text-2xl font-bold mb-4">
                 Tell us more about your job interview

@@ -39,7 +39,7 @@ const InterviewList = () => {
     <div>
       <div className="flex justify-between items-center mb-6">
         <h2 className="font-semibold text-xl text-gray-800">Previous Interviews</h2>
-        <button onClick={GetInterviewList} className="text-sm text-blue-600 hover:text-blue-800">
+        <button onClick={GetInterviewList} className="text-sm text-[#20503B] hover:text-[#20503B]">
           Refresh
         </button>
       </div>
@@ -58,7 +58,7 @@ const InterviewList = () => {
         </div>
       ) : (
         <div className="text-center py-12 bg-gray-50 rounded-lg">
-          <p className="text-gray-500">No interviews found. Create your first interview to get started.</p>
+          <p className="text-[#20503B]">No interviews found. Create your first interview to get started.</p>
         </div>
       )}
     </div>

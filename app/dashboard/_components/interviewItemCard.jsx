@@ -28,10 +28,10 @@ const InterviewItemCard = ({ interview }) => {
       <div className="p-5">
         <div className="flex justify-between items-start mb-3">
           <div>
-            <h3 className="font-bold text-lg text-blue-600 mb-1">{interview?.jobPosition}</h3>
+            <h3 className="font-bold text-lg text-[#20503B] mb-1">{interview?.jobPosition}</h3>
             <p className="text-sm text-gray-600">{interview?.jobExperience} Years Experience</p>
           </div>
-          <div className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">
+          <div className="bg-[#E4F0E0] text-[#20503B] text-xs px-2 py-1 rounded-full">
             {interview?.status || 'New'}
           </div>
         </div>
@@ -53,7 +53,7 @@ const InterviewItemCard = ({ interview }) => {
           <Button 
             onClick={onStart} 
             size="sm" 
-            className="w-full bg-blue-600 hover:bg-blue-700 font-medium"
+            className="w-full bg-[#20503B] hover:bg-[#20503B] font-medium"
           >
             Start Interview
           </Button>

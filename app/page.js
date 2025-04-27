@@ -1,168 +1,160 @@
-import React from 'react';
-import { Button } from '@/components/ui/button';
-import Head from 'next/head';
-import Contact from '@/_components/Contact';
-import Link from 'next/link';
+import React from "react";
+import { Button } from "@/components/ui/button";
+import Head from "next/head";
+import Contact from "@/_components/Contact";
+import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
+import Contect from "@/_components/Contect";
+import { UserButton } from "@clerk/nextjs";
 
 const page = () => {
   return (
-    <div>
+    <div className="font-['DM_Serif_Display'] text-base md:text-lg bg-[#F7F7F1] text-[#1C1C1C]">
       <Head>
         <title>AI Mock Interview</title>
-        <meta name="description" content="Ace your next interview with AI-powered mock interviews" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="description"
+          content="Ace your next interview with AI-powered mock interviews"
+        />
+        <link rel="icon" href="/ilablogo.jpg" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap"
+          rel="stylesheet"
+        />
       </Head>
 
-      <main className="min-h-screen">
+     
         {/* Header Section */}
-        <header className="w-full py-8 bg-gray-100 shadow-md">
-          <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-6">
-            <h1 className="text-3xl font-bold text-primary">AI Mock Interview</h1>
-            <nav className="flex flex-col sm:flex-row flex-wrap items-center justify-between mt-4 md:mt-0 space-y-4 sm:space-y-0 sm:space-x-4">
-              <div>
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://github.com/18vikastg">
-                  <FaGithub className="w-10 h-8" />
-                </a>
-              </div>
-              <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0">
-                <a href="#features" className="text-lg text-gray-800 mx-2 md:mx-4">Features</a>
-                <a href="#testimonials" className="text-lg text-gray-800 mx-2 md:mx-4">Testimonials</a>
-                <a href="#contact" className="text-lg text-gray-800 mx-2 md:mx-4">Contact</a>
-              </div>
-            </nav>
-          </div>
-        </header>
+        <header className="w-full py-2 bg-[#20503B] shadow-md">
+        <div className="container mx-auto flex justify-between items-center px-6">
+          <img
+            src="/ilab2.jpg"
+            alt="AI Mock Interview Logo"
+            className="h-24 w-auto"
+          />
+
+          <nav className="flex items-center space-x-6 text-2xl text-white">
+            <a
+              href="#contact"
+              className="hover:text-[#A2C5AC] transition-colors"
+            >
+              Contact
+            </a>
+            <a
+              href="#profile"
+              className="hover:text-[#A2C5AC] transition-colors"
+            >
+              Profile
+            </a>
+            <UserButton />
+          </nav>
+        </div>
+      </header>
 
         {/* Hero Section */}
-        <section className="flex flex-col items-center justify-center text-center py-20 bg-gradient-to-r from-gray-900 to-gray-400  px-6 md:px-0">
-          <h2 className="text-4xl md:text-5xl font-bold text-white">Ace Your Next Interview</h2>
-          <p className="mt-4 text-lg md:text-xl text-white ">Practice with AI-powered mock interviews and get personalized feedback</p>
-          <div className="mt-6 flex flex-col md:flex-row">
-            <a
-              href="/dashboard"
-              className="px-6 py-3 mb-4 md:mb-0 md:mr-4 text-lg font-semibold bg-white !text-primary-600 rounded-lg shadow-lg hover:bg-gray-100"
-            >
-              Get Started
-            </a>
-            <a
-              href="#features"
-              className="px-6 py-3 text-lg font-semibold border border-white rounded-lg hover:bg-white hover:text-black-600"
-            >
-              Learn More
-            </a>
-          </div>
-        </section>
+        <section className="flex flex-col items-center justify-center text-center py-20 bg-[#E8F1EB] px-6">
+        <h2 className="text-6xl font-semibold text-[#20503B] tracking-tight">
+          Ace Your Interview
+        </h2>
+        <h3 className="text-2xl font-semibold text-[#20503B] tracking-tight mt-4">
+          With your own AI powered interview lab
+        </h3>
+      </section>
 
-        {/* Features Section */}
-        <section id="features" className="py-16 bg-white px-6 md:px-0">
-          <div className="container mx-auto text-center">
-            <h2 className="text-4xl font-bold text-gray-800">Features</h2>
-            <p className="mt-4 text-lg text-gray-800">
-              Our AI Mock Interview platform offers a range of powerful features:
-            </p>
-            <div className="flex flex-wrap justify-center mt-8">
-              <div className="w-full md:w-1/3 px-4 py-8">
-                <div className="bg-blue-100 rounded-lg p-6 shadow-md">
-                  <h3 className="text-2xl font-semibold text-black-600">AI Mock Interviews</h3>
-                  <p className="mt-2 text-gray-600">Experience realistic interview scenarios with our advanced AI.</p>
-                </div>
-              </div>
-              <div className="w-full md:w-1/3 px-4 py-8">
-                <div className="bg-blue-100 rounded-lg p-6 shadow-md">
-                  <h3 className="text-2xl font-semibold text-black-600">Instant Feedback</h3>
-                  <p className="mt-2 text-gray-600">Get instant, personalized feedback to improve your performance.</p>
-                </div>
-              </div>
-              <div className="w-full md:w-1/3 px-4 py-8">
-                <div className="bg-blue-100 rounded-lg p-6 shadow-md">
-                  <h3 className="text-2xl font-semibold text-black-600">Comprehensive Reports</h3>
-                  <p className="mt-2 text-gray-600">Receive detailed reports highlighting your strengths and weaknesses.</p>
-                </div>
-              </div>
+      {/* Button Grid Section */}
+      <section className="py-16 flex justify-center">
+        <div className="grid grid-cols-2 gap-6">
+          <a href="/dashboard">
+            <div className="w-80 h-40 bg-[#D9EAD3] flex items-center justify-center rounded-lg shadow-md cursor-pointer hover:bg-[#C4D9C1] transition-colors">
+              <p className="text-2xl font-medium">Get Started</p>
             </div>
-          </div>
-        </section>
-
-        {/* Testimonials Section */}
-        <section id="testimonials" className="py-16 bg-gray-50 px-6 md:px-0">
-          <div className="container mx-auto text-center">
-            <h2 className="text-4xl font-bold text-gray-800">What Our Users Say</h2>
-            <div className="flex flex-wrap justify-center mt-8">
-              <div className="w-full md:w-1/2 px-4 py-8">
-                <div className="bg-white rounded-lg p-6 shadow-md">
-                  <p className="text-gray-600">
-                    "The AI mock interviews were incredibly helpful. I felt much more confident going into my real interview."
-                  </p>
-                  <h4 className="mt-4 text-lg font-semibold text-blue-600">- Alex Johnson</h4>
-                </div>
-              </div>
-              <div className="w-full md:w-1/2 px-4 py-8">
-                <div className="bg-white rounded-lg p-6 shadow-md">
-                  <p className="text-gray-600">
-                    "The feedback was spot on and helped me improve my answers. Highly recommend this service!"
-                  </p>
-                  <h4 className="mt-4 text-lg font-semibold text-blue-600">- Sarah Williams</h4>
-                </div>
-              </div>
+          </a>
+          <a href="#features">
+            <div className="w-80 h-40 bg-[#D9EAD3] flex items-center justify-center rounded-lg shadow-md cursor-pointer hover:bg-[#C4D9C1] transition-colors">
+              <p className="text-2xl font-medium">Features</p>
             </div>
-          </div>
-        </section>
-
-        {/* Contact Section */}
-        <section id="contact" className="py-16 bg-white px-6 md:px-0">
-          <Contact/>
-        </section>
-      </main>
-
-      {/* Footer Section */}
-      <footer className="py-16 bg-card border-t border-border">
-        <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
-          <div>
-            <h3 className="text-2xl font-bold text-foreground mb-4 tracking-tight">AI Mock Interview</h3>
-            <p className="text-muted-foreground font-light">Empowering your career with AI-driven preparation.</p>
-          </div>
-          <div>
-            <h4 className="text-lg font-semibold text-foreground mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              <li><a href="#features" className="text-muted-foreground hover:text-primary transition-colors duration-300">Features</a></li>
-              <li><a href="#pricing" className="text-muted-foreground hover:text-primary transition-colors duration-300">Pricing</a></li>
-              <li><a href="#testimonials" className="text-muted-foreground hover:text-primary transition-colors duration-300">Testimonials</a></li>
-              <li><a href="#contact" className="text-muted-foreground hover:text-primary transition-colors duration-300">Contact</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-lg font-semibold text-foreground mb-4">Connect</h4>
-            <div className="flex space-x-4">
-              <a href="https://github.com/18vikastg" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors duration-300" aria-label="GitHub">
-                <FaGithub className="w-6 h-6" />
-              </a>
-              {/* Add more social links as needed */}
+          </a>
+          <a href="/dashboard/howit">
+            <div className="w-80 h-40 bg-[#D9EAD3] flex items-center justify-center rounded-lg shadow-md cursor-pointer hover:bg-[#C4D9C1] transition-colors">
+              <p className="text-2xl font-medium">How it Works</p>
             </div>
-          </div>
-          <div>
-            <h4 className="text-lg font-semibold text-foreground mb-4">Stay Updated</h4>
-            <form className="flex flex-col gap-2">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="px-4 py-2 bg-input border border-border rounded-md text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-                aria-label="Email for newsletter"
-              />
-              <Button className="bg-primary text-primary-foreground hover:bg-[hsl(var(--primary)/0.9)] transition-all duration-300">
-                Subscribe
-              </Button>
-            </form>
-          </div>
+          </a>
+          <a href="/dashboard/question">
+            <div className="w-80 h-40 bg-[#D9EAD3] flex items-center justify-center rounded-lg shadow-md cursor-pointer hover:bg-[#C4D9C1] transition-colors">
+              <p className="text-2xl font-medium">Questions</p>
+            </div>
+          </a>
         </div>
-        <div className="container mx-auto px-6 mt-12 text-center">
-          <p className="text-muted-foreground text-sm font-light">
-            © {new Date().getFullYear()} AI Mock Interview. All rights reserved.
+      </section>
+
+      {/* Features Section */}
+      <section id="features" className="py-[40px] bg-[#F7F7F1] px-6 md:px-0">
+        <div className="container mx-auto text-center">
+          <h2 className="text-5xl font-semibold text-[#20503B]">Features</h2>
+          <p className="mt-4 text-xl text-[#5D8A66]">
+            Our AI Mock Interview platform offers a range of powerful features:
           </p>
+          <div className="flex flex-wrap justify-center mt-8 gap-8">
+            {/* Top Left Box */}
+            <div className="w-full md:w-1/4 mt-48">
+              <div className="bg-[#E4F0E0] rounded-lg p-6 shadow-md h-[170px] flex flex-col justify-center">
+                <h3 className="text-2xl font-semibold text-[#20503B]">
+                  AI Mock Interviews
+                </h3>
+                <p className="mt-2 text-lg text-[#5D8A66]">
+                  Experience realistic interview scenarios with our advanced AI.
+                </p>
+              </div>
+            </div>
+            {/* Top Center Box */}
+            <div className="w-full md:w-1/4 mt-0">
+              <div className="bg-[#E4F0E0] rounded-lg p-6 shadow-md h-[170px] flex flex-col justify-center">
+                <h3 className="text-2xl font-semibold text-[#20503B]">
+                  Instant Feedback
+                </h3>
+                <p className="mt-2 text-lg text-[#5D8A66]">
+                  Get instant, personalized feedback to improve your
+                  performance.
+                </p>
+              </div>
+            </div>
+            {/* Top Right Box */}
+            <div className="w-full md:w-1/4 mt-48">
+              <div className="bg-[#E4F0E0] rounded-lg p-6 shadow-md h-[170px] flex flex-col justify-center">
+                <h3 className="text-2xl font-semibold text-[#20503B]">
+                  Comprehensive Reports
+                </h3>
+                <p className="mt-2 text-lg text-[#5D8A66]">
+                  Receive detailed reports highlighting your strengths and
+                  weaknesses.
+                </p>
+              </div>
+            </div>
+            {/* Bottom Center Box */}
+            <div className="w-full md:w-1/4 mt-10 md:mt-[-20px] flex justify-center">
+              <div className="bg-[#E4F0E0] rounded-lg p-6 shadow-md h-[170px] flex flex-col justify-center">
+                <h3 className="text-2xl font-semibold text-[#20503B]">
+                  Personalized Insights
+                </h3>
+                <p className="mt-2 text-lg text-[#5D8A66]">
+                  Tailored recommendations to help you improve faster.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-16 bg-[#F7F7F1] px-6 md:px-0">
+        <Contect />
+      </section>
+
+      {/* Footer */}
+      <footer className="py-8 bg-[#20503B] text-white text-center">
+        <p className="text-base">
+          © 2024 AI Mock Interview. All rights reserved.
+        </p>
       </footer>
     </div>
   );
