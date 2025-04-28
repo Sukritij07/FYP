@@ -176,7 +176,7 @@ const RecordAnswerSection = ({
             />
           )}
         </div>
-        <div className="md:flex mt-4 md:mt-8 md:gap-5">
+        <div className="md:flex mt-4 md:mt-8 md:gap-2">
           <div className="my-4 md:my-0">
             <Button onClick={() => setWebCamEnabled((prev) => !prev)}>
               {webCamEnabled ? "Close WebCam" : "Enable WebCam"}

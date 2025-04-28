@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { db } from "@/utils/db";
 import { MockInterview } from "@/utils/schema";
 import { eq } from "drizzle-orm";
@@ -7,7 +7,7 @@ import QuestionsSection from "./_components/QuestionsSection";
 import RecordAnswerSection from "./_components/RecordAnswerSection";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { useParams } from 'next/navigation';
+import { useParams } from "next/navigation";
 
 const StartInterview = () => {
   const { interviewId } = useParams();
@@ -23,7 +23,7 @@ const StartInterview = () => {
 
   const GetInterviewDetails = async (interviewId) => {
     try {
-      console.log('Fetching interview details for ID:', interviewId);
+      console.log("Fetching interview details for ID:", interviewId);
 
       const result = await db
         .select()
@@ -31,7 +31,7 @@ const StartInterview = () => {
         .where(eq(MockInterview.mockId, interviewId));
 
       if (result.length === 0) {
-        console.error('No interview found with ID:', interviewId);
+        console.error("No interview found with ID:", interviewId);
         return;
       }
 
@@ -40,31 +40,35 @@ const StartInterview = () => {
       setMockInterviewQuestions(jsonMockResp);
       setInterviewData(result[0]);
     } catch (error) {
-      console.error('Error fetching interview details:', error);
+      console.error("Error fetching interview details:", error);
     }
   };
 
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-2 my-10">
-        <QuestionsSection 
-          mockInterviewQuestions={mockInterviewQuestions} 
-          activeQuestionIndex={activeQuestionIndex} 
+        <QuestionsSection
+          mockInterviewQuestions={mockInterviewQuestions}
+          activeQuestionIndex={activeQuestionIndex}
         />
         <RecordAnswerSection
-          mockInterviewQuestions={mockInterviewQuestions} 
+          mockInterviewQuestions={mockInterviewQuestions}
           activeQuestionIndex={activeQuestionIndex}
-          interviewData={interviewData} 
+          interviewData={interviewData}
         />
       </div>
-      <div className="flex gap-3 my-5 md:my-0 md:justify-end md:gap-6">
+      <div className="flex gap-3 my-3 md:my-0 md:justify-end ">
         {activeQuestionIndex > 0 && (
-          <Button onClick={() => setActiveQuestionIndex(activeQuestionIndex - 1)}>
+          <Button
+            onClick={() => setActiveQuestionIndex(activeQuestionIndex - 1)}
+          >
             Previous Question
           </Button>
         )}
         {activeQuestionIndex !== mockInterviewQuestions?.length - 1 && (
-          <Button onClick={() => setActiveQuestionIndex(activeQuestionIndex + 1)}>
+          <Button
+            onClick={() => setActiveQuestionIndex(activeQuestionIndex + 1)}
+          >
             Next Question
           </Button>
         )}

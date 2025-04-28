@@ -1,23 +1,46 @@
+"use client";
+
 import { Lightbulb, Volume2 } from "lucide-react";
-import React from "react";
+import React, { useEffect } from "react";
 
 const QuestionsSection = ({ mockInterviewQuestions, activeQuestionIndex }) => {
   const textToSpeech = (text) => {
     if ("speechSynthesis" in window) {
+      window.speechSynthesis.cancel(); // Stop any ongoing speech
       if (text) {
         const speech = new SpeechSynthesisUtterance(text);
         window.speechSynthesis.speak(speech);
       } else {
-        alert("No text provided for speech synthesis.");
+        console.warn("No text provided for speech synthesis.");
       }
     } else {
-      alert("Sorry, your browser does not support text to speech.");
+      console.warn("Sorry, your browser does not support text to speech.");
     }
   };
 
+  useEffect(() => {
+    if (
+      mockInterviewQuestions &&
+      mockInterviewQuestions.length > 0 &&
+      mockInterviewQuestions[activeQuestionIndex]
+    ) {
+      const question = mockInterviewQuestions[activeQuestionIndex].question;
+      if (question) {
+        textToSpeech(question);
+      }
+    }
+
+    // Cleanup function: stop speech when component unmounts
+    return () => {
+      if ("speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+      }
+    };
+  }, [mockInterviewQuestions, activeQuestionIndex]);
+
   return (
     mockInterviewQuestions && (
-      <div className="flex flex-col justify-between p-5 border rounded-lg my-1 bg-secondary">
+      <div className="flex flex-col justify-between p-3 border rounded-lg my-1 bg-secondary">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mb-5">
           {mockInterviewQuestions.map((question, index) => (
             <div
@@ -45,7 +68,7 @@ const QuestionsSection = ({ mockInterviewQuestions, activeQuestionIndex }) => {
               )
             }
           />
-          <div className="border rounded-lg p-5 bg-blue-100 mt-5 flex flex-col items-start">
+          <div className="border rounded-lg p-2 bg-blue-100 mt-5 flex flex-col items-start">
             <h2 className="flex gap-2 items-center text-primary font-semibold">
               <Lightbulb />
               <strong>Note:</strong>

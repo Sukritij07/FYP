@@ -109,16 +109,16 @@ function Interview() {
           )}
           <Button
             variant="contained"
-            color="primary"
+            className="bg-black text-white hover:bg-gray-800"
             onClick={handleEnableWebCam}
           >
             Enable Web Cam and Microphone
           </Button>
         </div>
       </div>
-      <div className="flex justify-end items-end mt-5">
+      <div className="flex justify-end items-end mt-3">
         <Link href={`/dashboard/interview/${interviewId}/start`}>
-          <Button variant="contained" color="primary">
+          <Button variant="contained" className="bg-black text-white hover:bg-gray-800">
             Start Interview
           </Button>
         </Link>
