@@ -42,4 +42,26 @@ export const Newsletter = pgTable("newsletter", {
   createdAt: varchar("createdAt"),
 });
 
+export const UserAnswer1 = pgTable('userAnswer1', {
+  id: serial('id').primaryKey(),
+  mockIdRef: varchar('mockId').notNull(), // Fixed field name
+  question: varchar('question').notNull(),
+  correctAns: text('correctAns'),
+  userAns: text('userAns'), // Fixed field name
+  feedback: text('feedback'),
+  rating: varchar('rating'), // Corrected type
+  createdAt: varchar('createdAt'),
+});
+
+export const UserAnswer2 = pgTable('userAnswer2', {
+  id: serial('id').primaryKey(),
+  mockIdRef: varchar('mockId').notNull(), // Fixed field name
+  question: varchar('question').notNull(),
+  correctAns: text('correctAns'),
+  userAns: text('userAns'), // Fixed field name
+  feedback: text('feedback'),
+  rating: varchar('rating'), // Corrected type
+  createdAt: varchar('createdAt'),
+});
+
 export const schema = { MockInterview, UserAnswer };

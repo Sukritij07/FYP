@@ -1,9 +1,5 @@
 import React from "react";
-import { Button } from "@/components/ui/button";
 import Head from "next/head";
-import Contact from "@/_components/Contact";
-import Link from "next/link";
-import { FaGithub } from "react-icons/fa";
 import Contect from "@/_components/Contect";
 import { UserButton } from "@clerk/nextjs";
 

@@ -1,6 +1,6 @@
 'use client';
 import { db } from "@/utils/db";
-import { UserAnswer } from "@/utils/schema";
+import { UserAnswer1 } from "@/utils/schema";
 import { eq } from "drizzle-orm";
 import React, { useEffect, useState, useMemo } from "react";
 import { ChevronDown } from "lucide-react";
@@ -31,9 +31,9 @@ const Feedback = () => {
   const GetFeedback = async () => {
     const result = await db
       .select()
-      .from(UserAnswer)
-      .where(eq(UserAnswer.mockIdRef, interviewId))
-      .orderBy(UserAnswer.id);
+      .from(UserAnswer1)
+      .where(eq(UserAnswer1.mockIdRef, interviewId))
+      .orderBy(UserAnswer1.id);
 
     setFeedbackList(result);
   };

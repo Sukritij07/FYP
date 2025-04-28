@@ -14,7 +14,7 @@ import { Mic } from "lucide-react";
 import { toast } from "sonner";
 import { sendMessage } from "@/utils/GeminiAIModal"; // Correct import
 import { db } from "@/utils/db";
-import { UserAnswer } from "@/utils/schema";
+import { UserAnswer1 } from "@/utils/schema";
 import { useUser } from "@clerk/nextjs";
 import moment from "moment";
 import { GoogleGenerativeAI } from "@google/generative-ai";
@@ -115,7 +115,8 @@ const RecordAnswerSection = ({
         userAnswer +
         " , Depends on question and user answer for given interview question" +
         " please give us rating for answer and feedback as area of improvement if any " +
-        "in just 3 to 5 lines to improve it in JSON format with rating field and feedback field" + "keep the rating a bit lenient and on scale of 1 to 10";
+        "in just 3 to 5 lines to improve it in JSON format with rating field and feedback field" +
+        "keep the rating a bit lenient and on scale of 1 to 10";
 
       console.log("Sending feedback prompt to AI model...");
       const result = await sendMessage(feedbackPrompt); // Use the imported sendMessage function
@@ -130,7 +131,7 @@ const RecordAnswerSection = ({
       }
 
       console.log("Inserting user answer into database...");
-      const resp = await db.insert(UserAnswer).values({
+      const resp = await db.insert(UserAnswer1).values({
         mockIdRef: interviewData.mockId, // Corrected field name
         question: mockInterviewQuestions[activeQuestionIndex]?.question,
         correctAns: mockInterviewQuestions[activeQuestionIndex]?.answer,

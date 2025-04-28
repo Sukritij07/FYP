@@ -202,7 +202,7 @@ function AddNewInterview() {
     ],
     "Project Manager": [
       "Microsoft Project, Asana, Slack",
-      "Trello, Monday.com, Jira",
+      "Trello, Wrike, Jira",
     ],
     "Financial Analyst": [
       "Excel, SQL, Power BI",
