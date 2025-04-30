@@ -7,7 +7,9 @@ const InterviewItemCard = ({ interview }) => {
   const router = useRouter();
   
   const formatDate = (dateString) => {
+    if (!dateString) return 'Invalid Date'; // Handle undefined or null dates
     const date = new Date(dateString);
+    if (isNaN(date)) return 'Invalid Date'; // Handle invalid date formats
     return date.toLocaleDateString('en-US', { 
       month: 'short', 
       day: 'numeric', 
